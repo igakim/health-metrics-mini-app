@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Montserrat:ital,wght@0,100;0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&display=swap');
+html, body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  box-sizing: border-box;
+  padding: .6em;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #062223;
+  position: relative;
+}
