@@ -64,7 +64,7 @@ const ProductQuantity = () => {
                 <h3 className={styles.productsTitle}>{product.title}</h3>
                 <p className={styles.productsDescription}>
                   <span>{product.description}</span>
-                  <span>{product.totalKkal || '200'}</span>
+                  <span className={styles.productsItemTotalKkal}>- {product.totalKkal} kkal</span>
                 </p>
               </div>
               <div className={styles.productsInput}>

@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "scp -P 37225 -r ./dist/* selinakyle@167.71.63.121:/var/www/health_metrics/web/"
+    "deploy": "npm run build && scp -P 37225 -r ./dist/* selinakyle@167.71.63.121:/var/www/health_metrics/web/"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
