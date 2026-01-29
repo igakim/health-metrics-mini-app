@@ -16,14 +16,21 @@ const productSlice = createSlice({
         state.list = state.list.filter(({ id }) => id !== product.id);
         state.rawList = state.list.filter(({ id }) => id !== product.id);
       } else {
-        state.list.push(product);
-        state.rawList.push(product);
+        state.list.push({
+          ...product,
+          totalKkal: product.kall * product.weight / 100,
+        });
+        state.rawList.push({
+          ...product,
+          totalKkal: product.kall * product.weight / 100,
+        });
       }
     },
     setProductQuantity(state, { payload: { productId, weight } }) {
       state.list.forEach((product) => {
         if (product.id === productId) {
           product.weight = weight;
+          product.totalKkal = product.kall * weight / 100;
         }
       });
     },
@@ -42,6 +49,10 @@ export const {
 
 export const useChosenProducts = () => {
   return useSelector((state) => state.products.list);
+};
+
+export const useTotalKkalOfChosenProducts = () => {
+  return useSelector((state) => state.products.list.reduce((acc, p) => acc + p.totalKkal, 0));
 };
 
 export const useChosenRawProducts = () => {

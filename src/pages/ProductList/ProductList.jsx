@@ -9,7 +9,7 @@ import { BarLoader } from 'react-spinners';
 import scssVars from '../../styles/params.module.scss';
 import { useDispatch } from 'react-redux';
 import { chooseProduct, useChosenProducts } from '../../store/productSlice.js';
-import { any, includes } from 'ramda';
+import { any } from 'ramda';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { appRoutes } from '../../router.jsx';
 

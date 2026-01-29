@@ -5,7 +5,7 @@ import {
   removeProduct,
   setProductQuantity,
   useChosenProducts,
-  useChosenRawProducts
+  useChosenRawProducts, useTotalKkalOfChosenProducts
 } from '../../store/productSlice.js';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
@@ -16,6 +16,7 @@ import { FiX } from 'react-icons/fi';
 const ProductQuantity = () => {
   const chosenProducts = useChosenProducts();
   const chosenRawProducts = useChosenRawProducts();
+  const totalKkal = useTotalKkalOfChosenProducts();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -61,7 +62,10 @@ const ProductQuantity = () => {
               </button>
               <div className={styles.productsData}>
                 <h3 className={styles.productsTitle}>{product.title}</h3>
-                <p className={styles.productsDescription}>{product.description}</p>
+                <p className={styles.productsDescription}>
+                  <span>{product.description}</span>
+                  <span>{product.totalKkal || '200'}</span>
+                </p>
               </div>
               <div className={styles.productsInput}>
                 <div className={styles.productsInputWrapper}>
@@ -90,7 +94,7 @@ const ProductQuantity = () => {
           onClick={handleSave}
           disabled={!isAllFilled}
         >
-          Сохранить
+          Сохранить - {totalKkal} kkal
         </button>
       </div>
     </div>
